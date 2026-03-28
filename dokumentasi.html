@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumentasi KasirSync POS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <header class="bg-blue-600 text-white py-12 px-6 shadow-lg relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]"></div>
+        <div class="max-w-4xl mx-auto relative z-10 text-center">
+            <h1 class="text-4xl font-extrabold mb-3">KasirSync POS Architecture</h1>
+            <p class="text-blue-100 text-lg">Single File Progressive Web App (Offline First)</p>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-4xl mx-auto w-full p-6 md:p-10 -mt-8 relative z-20">
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8 border border-slate-100">
+            <h2 class="text-2xl font-bold border-b pb-3 mb-6 flex items-center gap-2">
+                <span class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span> 
+                Arsitektur UI / UX Interaktif
+            </h2>
+            <ul class="space-y-4 text-slate-600">
+                <li class="flex items-start gap-3">
+                    <b class="text-slate-800 min-w-[150px]">Mobile Swipe-to-Close</b>
+                    <span>Menggunakan implementasi Event Listener Native (<code>touchstart</code>, <code>touchmove</code>, <code>touchend</code>) agar panel keranjang di Mobile dapat ditutup dengan cara di-*swipe* ke bawah layaknya aplikasi iOS / Android native sejati. Mengurangi kekakuan UI statis.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <b class="text-slate-800 min-w-[150px]">Auto-Close & Reflow UX</b>
+                    <span>Proses *checkout* langsung menutup keranjang dan popup pembayaran, namun **tetap menampilkan Pop-up Kembalian** untuk memberikan umpan balik (feedback) visual yang penting bagi kasir sebelum mencetak struk.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <b class="text-slate-800 min-w-[150px]">100% TailwindCSS</b>
+                    <span>Seluruh komponen responsif menggunakan Class dasar Tailwind, dibantu dengan CSS spesifik (<code>@media print</code>, Safe Area Inset) guna menyempurnakan bentuk layout.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl p-8 border border-slate-100">
+            <h2 class="text-2xl font-bold border-b pb-3 mb-6 flex items-center gap-2">
+                <span class="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span> 
+                Fitur Komersial & Hardware
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                    <h3 class="font-bold text-slate-800 mb-2 flex items-center gap-2">🖨 Cetak Thermal Adaptif</h3>
+                    <p class="text-sm text-slate-600">Sistem cetak dibungkus pada <code>@media print</code> yang akan menghidupkan elemen tersembunyi berformat struk Thermal (Max 80mm) yang rapi, berpusat, dan *monospaced* menggunakan <code>window.print()</code> tanpa merusak layar aplikasi.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                    <h3 class="font-bold text-slate-800 mb-2">⚡ Cetak Otomatis</h3>
+                    <p class="text-sm text-slate-600">Pengguna dapat mengaktifkan Toggle "Cetak Struk Otomatis" di pengaturan agar *browser print dialog* langsung muncul tanpa menutup modal kembalian setelah transaksi.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                    <h3 class="font-bold text-slate-800 mb-2">📤 Export-Import SheetJS</h3>
+                    <p class="text-sm text-slate-600">Backup seluruh data transaksi dan produk ke format `.xlsx`, atau import ribuan data produk secara instan ke dalam *IndexedDB* secara offline.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                    <h3 class="font-bold text-slate-800 mb-2">📲 Bagikan via API Native</h3>
+                    <p class="text-sm text-slate-600">Integrasi <code>html2canvas</code> yang men-snapshot kode HTML Struk, lalu melemparkannya ke <code>navigator.share()</code> untuk dibagikan ke media sosial (WhatsApp) sebagai nota elektronik.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 text-center py-6 mt-10">
+        <p>© 2026 Bejaja Digital. Hak Cipta Dilindungi.</p>
+    </footer>
+
+</body>
+</html>
