@@ -1,27 +1,29 @@
 {
-  "name": "KasirSync POS",
+  "id": "kasirsync-pos-offline",
+  "name": "KasirSync POS Modern",
   "short_name": "KasirSync",
   "description": "Sistem Kasir Offline Modern Berbasis Web",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0B1120",
   "theme_color": "#2563EB",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "./assets/icon-192x192.png",
+      "src": "assets/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./assets/icon-512x512.png",
+      "src": "assets/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./assets/icon-512x512.png",
+      "src": "assets/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
