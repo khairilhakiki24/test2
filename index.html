@@ -509,9 +509,9 @@
                     </div>
 
                     <!-- Cart Bottom Sheet (Mobile) / Sidebar (Desktop) -->
-                    <div class="lg:w-[380px] bg-white dark:bg-darkSurface rounded-2xl shadow-soft flex flex-col border border-slate-100 dark:border-slate-800 
-                                fixed lg:relative bottom-[env(safe-area-inset-bottom)] lg:bottom-auto left-0 lg:left-auto right-0 lg:right-auto z-30
-                                rounded-t-3xl lg:rounded-2xl transform transition-transform duration-300 translate-y-full lg:translate-y-0 h-[80vh] lg:h-auto" id="cart-panel">
+                    <div class="lg:w-[380px] bg-white dark:bg-darkSurface shadow-soft lg:shadow-soft flex flex-col border border-slate-100 dark:border-slate-800 
+                                fixed lg:relative bottom-0 lg:bottom-auto left-0 lg:left-auto right-0 lg:right-auto z-50 lg:z-30
+                                rounded-t-3xl lg:rounded-2xl transform transition-transform duration-300 translate-y-full lg:translate-y-0 h-[85vh] lg:h-auto" id="cart-panel">
                         
                         <!-- Drag handle mobile (NATIVE SWIPE FEEL) -->
                         <div class="w-full flex justify-center pt-3 pb-2 lg:hidden cursor-grab active:cursor-grabbing" id="cart-drag-handle">
@@ -527,7 +527,8 @@
                             <!-- Cart items -->
                         </div>
                         
-                        <div class="p-5 bg-slate-50 dark:bg-slate-800/50 rounded-b-2xl border-t border-slate-100 dark:border-slate-800">
+                        <!-- Footer Cart dengan Extra Padding di Mobile -->
+                        <div class="p-5 pb-[calc(1.5rem+env(safe-area-inset-bottom))] lg:pb-5 bg-slate-50 dark:bg-slate-800/50 lg:rounded-b-2xl border-t border-slate-100 dark:border-slate-800">
                             <div class="flex justify-between items-center mb-4">
                                 <span class="text-slate-500 dark:text-slate-400 font-medium">Total Tagihan</span>
                                 <span class="text-2xl font-bold text-primary" id="cart-total">Rp 0</span>
@@ -536,20 +537,14 @@
                                 <i data-lucide="credit-card"></i> Checkout
                             </button>
                         </div>
-                       
                     </div>
-                     </br>
-                           </br>
-                              </br>
                 </div>
 
-                <!-- Floating Cart Button (Mobile) -->
-                <button onclick="toggleMobileCart()" class="lg:hidden fixed bottom-[calc(80px+env(safe-area-inset-bottom))] right-4 w-14 h-14 bg-primary text-white rounded-full shadow-float flex items-center justify-center z-20 btn-press">
-                    <i data-lucide="shopping-cart"></i>
-                    <span id="floating-cart-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white dark:border-darkBg hidden">0</span>
+                <!-- Floating Cart Button (Mobile) Letak Baru & Styling Premium -->
+                <button onclick="toggleMobileCart()" class="lg:hidden fixed bottom-[calc(90px+env(safe-area-inset-bottom))] right-5 w-[60px] h-[60px] bg-primary text-white rounded-full shadow-[0_10px_25px_rgba(37,99,235,0.4)] flex items-center justify-center z-30 btn-press border-2 border-white dark:border-darkBg transition-transform hover:scale-105 active:scale-95">
+                    <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                    <span id="floating-cart-count" class="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[11px] font-bold w-6 h-6 flex items-center justify-center rounded-full border-2 border-white dark:border-darkBg hidden">0</span>
                 </button>
-                </br>
-                 </br>
             `;
 
             document.getElementById('pos-search').addEventListener('input', (e) => updatePOSGrid(e.target.value));
@@ -706,9 +701,6 @@
                     <button onclick="processCheckout()" class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg shadow-float btn-press mt-6 flex items-center justify-center gap-2">
                         <i data-lucide="check-circle"></i> Selesaikan Transaksi
                     </button>
-                    </br>
-                       </br>
-                          </br>
                 </div>
             `);
             setTimeout(() => document.getElementById('pay-amount').focus(), 300);
